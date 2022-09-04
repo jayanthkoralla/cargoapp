@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cargoapp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <div class = "container">
+
+      <nav class="navbar navbar-default" role="navigation">
+        <% if driver_signed_in? %>      
+          <span class="navbar-brand">Hi, <%= current_driver.email %> </span>
+          <%= button_to "Sign out", destroy_driver_session_path,:class => "btn navbar-btn btn-danger navbar-right",method: :delete %>
+          <% if !current_page? edit_driver_registration_path %>
+            <%= link_to "Edit Profile", edit_driver_registration_path,:class => "btn navbar-btn btn-danger navbar-right"%>
+          <% end %>
+          <% if !current_page? drivers_path %>
+            <%= link_to "Home Page", drivers_path,:class => "btn navbar-btn btn-danger navbar-right"%>
+          <% end %>
+          <% if !current_page? new_route_path %>
+            <%= link_to "Create Route", new_route_path,:class => "btn navbar-btn btn-danger navbar-right"%>
+          <% end %>
+        <% elsif !current_page? root_path %>
+            <%= link_to "Home Page", root_path,:class => "btn navbar-btn btn-danger navbar-left"%>
+        <% end %>  
+    </nav>
+
+
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
+</html>

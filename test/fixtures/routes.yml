@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  source: MyString
+  destination: MyString
+  references: MyString
+  drivers: MyString
+
+two:
+  source: MyString
+  destination: MyString
+  references: MyString
+  drivers: MyString
