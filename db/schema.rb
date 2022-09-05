@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_05_064016) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_05_095433) do
   create_table "bookings", force: :cascade do |t|
     t.integer "driver_id", null: false
     t.integer "customer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "route_id"
+    t.date "date_of_journey"
     t.index ["customer_id"], name: "index_bookings_on_customer_id"
     t.index ["driver_id"], name: "index_bookings_on_driver_id"
   end
