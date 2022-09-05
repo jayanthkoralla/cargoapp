@@ -1,0 +1,28 @@
+<div class="container">
+
+    <br><br>
+    <div>
+        <h3><u> Routes Avaialble for Booking </u></h3><br>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Source</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Book</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% sno = 1 %>
+                <% @routes.each do |route| %>
+                    <tr>
+                        <th scope="row"><%= sno %></th> <% sno = sno + 1 %>
+                        <td><%= route["source"]  %></td>
+                        <td><%= route["destination"]  %></td>
+                        <td><%= link_to "Book","#" , :class => "btn btn-info" %></td>
+                    </tr>
+                <% end %>
+             </tbody>
+        </table>
+    </div>
+</div>

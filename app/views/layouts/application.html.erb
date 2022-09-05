@@ -26,9 +26,27 @@
           <% if !current_page? new_route_path %>
             <%= link_to "Create Route", new_route_path,:class => "btn navbar-btn btn-danger navbar-right"%>
           <% end %>
-        <% elsif !current_page? root_path %>
+        <% elsif current_page? new_driver_session_path %>
             <%= link_to "Home Page", root_path,:class => "btn navbar-btn btn-danger navbar-left"%>
         <% end %>  
+        <!-- ################################################################ -->
+        <% if customer_signed_in? %>      
+          <span class="navbar-brand">Hi, <%= current_customer.email %> </span>
+          <%= button_to "Sign out", destroy_customer_session_path,:class => "btn navbar-btn btn-danger navbar-right",method: :delete %>
+          <% if !current_page? edit_customer_registration_path %>
+            <%= link_to "Edit Profile", edit_customer_registration_path,:class => "btn navbar-btn btn-danger navbar-right"%>
+          <% end %>
+          <% if !current_page? customers_path %>
+            <%= link_to "Home Page", customers_path,:class => "btn navbar-btn btn-danger navbar-right"%>
+          <% end %>
+          <!--  <% if !current_page? new_route_path %>
+              <%= link_to "Create Route", new_route_path,:class => "btn navbar-btn btn-danger navbar-right"%>
+            <% end %>  -->
+        <% elsif current_page? new_customer_session_path %>
+            <%= link_to "Home Page", root_path,:class => "btn navbar-btn btn-danger navbar-left"%>
+        <% end %>  
+        
+        
     </nav>
 
 
