@@ -10,6 +10,7 @@
                     <th scope="col">Driver Mail</th>
                     <th scope="col">Source</th>
                     <th scope="col">Destination</th>
+                    <th scope="col">Date of journey</th>                    
                     <th scope="col">Book</th>
                 </tr>
             </thead>
@@ -26,6 +27,7 @@
                                 <input type="hidden" name="driver_id" value=<%= route.driver_id %> />
                                 <input type="hidden" name="customer_id" value=<%= current_customer.id %> />
                                 <input type="hidden" name="route_id" value=<%= route.id %> />
+                                <input type="date"   name="date_of_journey"></td><td>
                                 <input type="submit" value="Book Driver" class = "btn btn-info" />
                             </form>                        
                         </td>
