@@ -45,6 +45,7 @@
                     <th scope="col">Driver Mail</th>
                     <th scope="col">Source</th>
                     <th scope="col">Destination</th>
+                    <th scope="col">Date Of Journey</th>                    
                     <th scope="col">Booked Date</th>
                 </tr>
             </thead>
@@ -56,7 +57,8 @@
                         <td><%= Driver.find(booking.driver_id).email  %></td>
                         <td><%= Route.find(booking.route_id).source  %></td>
                         <td><%= Route.find(booking.route_id).destination  %></td>
-                        <td><%= Route.find(booking.route_id).created_at %></td>
+                        <td><%= booking.date_of_journey  %></td>
+                        <td><%= booking.created_at %></td>
                     </tr>
                 <% end %>
              </tbody>
