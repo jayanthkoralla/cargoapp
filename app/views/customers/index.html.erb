@@ -19,7 +19,38 @@
                         <th scope="row"><%= sno %></th> <% sno = sno + 1 %>
                         <td><%= route["source"]  %></td>
                         <td><%= route["destination"]  %></td>
-                        <td><%= link_to "Book","#" , :class => "btn btn-info" %></td>
+                        <td>
+                            <form method="post" action="/bookings" style='display: inline'>             
+                                <input type="hidden" name="driver_id" value=<%= route.driver_id %> />
+                                <input type="hidden" name="customer_id" value=<%= current_customer.id %> />
+                                <input type="hidden" name="route_id" value=<%= route.id %> />
+                                <input type="submit" value="Book Driver" class = "btn btn-info" />
+                            </form>                        
+                        </td>
+                    </tr>
+                <% end %>
+             </tbody>
+        </table>
+    </div>
+        <div>
+        <h3><u> My Bookings </u></h3><br>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Source</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Booked Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% sno = 1 %>
+                <% @bookings.each do |booking| %>
+                    <tr>
+                        <th scope="row"><%= sno %></th> <% sno = sno + 1 %>
+                        <td><%= Route.find(booking.route_id).source  %></td>
+                        <td><%= Route.find(booking.route_id).destination  %></td>
+                        <td><%= Route.find(booking.route_id).created_at %></td>
                     </tr>
                 <% end %>
              </tbody>

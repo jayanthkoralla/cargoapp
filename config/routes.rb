@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'pages/index'
   get "/drivers", to: "drivers#index"
   get "/customers", to: "customers#index"
+  post "/bookings", to: "bookings#create"
   devise_for :drivers
   devise_for :customers
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

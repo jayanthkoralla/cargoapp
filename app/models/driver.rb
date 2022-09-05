@@ -4,4 +4,6 @@ class Driver < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :routes
+  has_many :bookings
+  has_many :customers, through: :bookings
 end

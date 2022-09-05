@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_04_085224) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_05_064016) do
+  create_table "bookings", force: :cascade do |t|
+    t.integer "driver_id", null: false
+    t.integer "customer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "route_id"
+    t.index ["customer_id"], name: "index_bookings_on_customer_id"
+    t.index ["driver_id"], name: "index_bookings_on_driver_id"
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -44,5 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_04_085224) do
     t.index ["driver_id"], name: "index_routes_on_driver_id"
   end
 
+  add_foreign_key "bookings", "customers"
+  add_foreign_key "bookings", "drivers"
   add_foreign_key "routes", "drivers"
 end
