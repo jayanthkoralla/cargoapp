@@ -7,6 +7,7 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Driver Mail</th>
                     <th scope="col">Source</th>
                     <th scope="col">Destination</th>
                     <th scope="col">Book</th>
@@ -17,6 +18,7 @@
                 <% @routes.each do |route| %>
                     <tr>
                         <th scope="row"><%= sno %></th> <% sno = sno + 1 %>
+                        <td><%= Driver.find(route["driver_id"]).email  %></td>
                         <td><%= route["source"]  %></td>
                         <td><%= route["destination"]  %></td>
                         <td>
@@ -38,6 +40,7 @@
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Driver Mail</th>
                     <th scope="col">Source</th>
                     <th scope="col">Destination</th>
                     <th scope="col">Booked Date</th>
@@ -48,6 +51,7 @@
                 <% @bookings.each do |booking| %>
                     <tr>
                         <th scope="row"><%= sno %></th> <% sno = sno + 1 %>
+                        <td><%= Driver.find(booking.driver_id).email  %></td>
                         <td><%= Route.find(booking.route_id).source  %></td>
                         <td><%= Route.find(booking.route_id).destination  %></td>
                         <td><%= Route.find(booking.route_id).created_at %></td>

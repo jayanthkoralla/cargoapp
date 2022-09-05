@@ -8,6 +8,7 @@ class BookingsController < ApplicationController
         # @routes = Route.all
         # @bookings = current_customer.bookings
         # render "customers/index"
+        flash[:notice] =  "Your Booking is successfully"
         redirect_to customers_path
     end
   end
